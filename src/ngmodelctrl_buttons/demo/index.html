@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Integration with NgModelController - using $render()</title>
+    <link href="../../../assets/bootstrap.min.css" rel="stylesheet"/>
+    <script src="../../../lib/angular.js"></script>
+    <script src="buttons-checkbox.js"></script>
+
+    <script type="text/javascript">
+        angular.module('demo', ['bs.buttons-checkbox'])
+                .controller('ButtonsCtrl', function ($scope) {
+                    $scope.model = {
+                        left: false,
+                        middle: true,
+                        right: false
+                    };
+                });
+    </script>
+
+</head>
+<body ng-app="demo" ng-controller="ButtonsCtrl">
+
+<pre>{{model | json}}</pre>
+
+<div class="btn-group">
+    <button type="button" class="btn btn-primary" ng-model="model.left" bs-btn-checkbox>Left</button>
+    <button type="button" class="btn btn-primary" ng-model="model.middle" bs-btn-checkbox>Middle</button>
+    <button type="button" class="btn btn-primary" ng-model="model.right" bs-btn-checkbox>Right</button>
+</div>
+
+</body>
+</html>
