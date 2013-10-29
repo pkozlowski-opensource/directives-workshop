@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom widgets</title>
+    <link href="../../../assets/bootstrap.min.css" rel="stylesheet">
+    <script src="../../../lib/angular.js"></script>
+    <script src="../../../tmp/templates.js"></script>
+    <script src="rating.js"></script>
+
+    <script type="text/javascript">
+        angular.module('demo', ['bs.rating', 'templates'])
+                .controller('RatingCtrl', function ($scope) {
+
+                    $scope.maxValue = 10;
+                    $scope.myValue = 5;
+
+                    $scope.onRatingChange = function(newRating, oldRating) {
+                        console.log('Rating was changed from ' + oldRating + ' to ' + newRating);
+                    };
+                });
+    </script>
+
+</head>
+<body ng-app="demo" ng-controller="RatingCtrl">
+<div class="container">
+
+    <div class="well">Rating: <input type="number" ng-model="myValue" min="0" max="{{maxValue}}"/></div>
+
+    <bs-rating rating="myValue" max-rating="maxValue" rated="onRatingChange($new, $old)"></bs-rating>
+
+</div>
+</body>
+</html>
