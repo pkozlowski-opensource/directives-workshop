@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Integration with NgModelController - using $render()</title>
+    <link href="../../../assets/bootstrap.min.css" rel="stylesheet"/>
+    <script src="../../../lib/jquery-1.10.2.js"></script>
+    <script src="../../../lib/angular.js"></script>
+    <script src="../../../lib/positioning.js"></script>
+    <script src="tooltip.js"></script>
+
+    <script type="text/javascript">
+        angular.module('demo', ['bs.tooltip'])
+                .controller('TooltipCtrl', function ($scope) {
+                    $scope.ttipText = 'Some content';
+                    
+                });
+    </script>
+
+</head>
+<body ng-app="demo" ng-controller="TooltipCtrl">
+<div class="well" style="padding: 3%">
+    <input class="form-control" ng-model="ttipText"/>
+</div>
+<div class="well" style="padding: 3%">
+    <button class="btn btn-default" bs-tooltip="{{ttipText}}" bs-tooltip-placement="left">Left</button>
+    <button class="btn btn-default" bs-tooltip="{{ttipText}}" bs-tooltip-placement="top">Top</button>
+    <button class="btn btn-default" bs-tooltip="{{ttipText}}" bs-tooltip-placement="right">Right</button>
+    <button class="btn btn-default" bs-tooltip="{{ttipText}}" bs-tooltip-placement="bottom">Bottom</button>
+</div>
+
+</body>
+</html>
