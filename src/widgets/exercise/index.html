@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom widgets</title>
+    <link href="../../../assets/bootstrap.min.css" rel="stylesheet">
+    <script src="../../../lib/angular.js"></script>
+    <script src="../../../tmp/templates.js"></script>
+    <script src="pagination.js"></script>
+
+    <script type="text/javascript">
+        angular.module('demo', ['bs.pagination', 'templates'])
+                .controller('PaginationCtrl', function ($scope) {
+                    $scope.currentPage = 3;
+                    $scope.items = 100;
+                });
+    </script>
+
+</head>
+<body ng-app="demo" ng-controller="PaginationCtrl">
+<div class="container">
+
+    <div class="well">
+        <label>Collection size: <input type="number" ng-model="items" min="0"/></label><br>
+        <label>Selected page: <input type="number" ng-model="currentPage" min="0"/></label>
+    </div>
+
+    <bs-pagination page="currentPage" collection-size="items"></bs-pagination>
+</div>
+</body>
+</html>
