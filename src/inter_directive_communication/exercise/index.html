@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom widgets</title>
+    <link href="../../../assets/bootstrap.min.css" rel="stylesheet">
+    <script src="../../../lib/angular.js"></script>
+    <script src="accordion.js"></script>
+
+    <script type="text/javascript">
+        angular.module('demo', ['bs.accordion']);
+    </script>
+
+</head>
+<body ng-app="demo">
+    <bs-accordion>
+        <bs-collapse heading="foo">Bla</bs-collapse>
+        <bs-collapse heading="foo2">Bla2</bs-collapse>
+    </bs-accordion>
+</body>
+</html>

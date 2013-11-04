@@ -1,0 +1,10 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a class="accordion-toggle" ng-click="toggleCollapse()">{{heading}}</a>
+        </h4>
+    </div>
+    <div class="panel-collapse" ng-class="{in: isOpen, collapse: !isOpen}" ng-style="{height: isOpen ? 'auto' : '0'}">
+        <div class="panel-body" ng-transclude></div>
+    </div>
+</div>
