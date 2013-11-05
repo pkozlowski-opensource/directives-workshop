@@ -27,6 +27,7 @@ module.exports = function (grunt) {
         frameworks: ['jasmine'],
         files: [
           'lib/jquery-1.10.2.js',
+          'lib/positioning.js',
           'lib/angular.js',
           'lib/angular-mocks.js',
           'lib/jasmine-matchers.js',
