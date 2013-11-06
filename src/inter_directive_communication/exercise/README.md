@@ -1,0 +1,1 @@
+* Hint: you can adapt the collapse directive
