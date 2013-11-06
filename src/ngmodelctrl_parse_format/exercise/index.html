@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Integration with NgModelController - parsing and formatting</title>
+    <link href="../../../assets/bootstrap.min.css" rel="stylesheet"/>
+    <script src="../../../lib/angular.js"></script>
+    <script src="../../../lib/moment.js"></script>
+    <script src="datefield.js"></script>
+
+    <script type="text/javascript">
+        angular.module('demo', ['bs.datefield'])
+                .controller('DatefieldCtrl', function ($scope) {
+                    $scope.myDate = new Date();
+                });
+    </script>
+
+</head>
+<body ng-app="demo" ng-controller="DatefieldCtrl">
+
+<pre>
+  {{ myDate | date:'medium'}}
+</pre>
+<div class="well">
+    <form name="form">
+        <div class="form-group" ng-class="{'has-success': form.date.$valid, 'has-error': form.date.$invalid}">
+            <input name="date" ng-model="myDate" bs-datefield="YYYY-MM-DD" class="form-control"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>

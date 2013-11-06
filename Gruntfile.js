@@ -31,6 +31,7 @@ module.exports = function (grunt) {
           'lib/angular.js',
           'lib/angular-mocks.js',
           'lib/jasmine-matchers.js',
+          'lib/moment.js',
           'src/**/*.js',
           'tmp/*.js'],
         browsers: process.env.TRAVIS ? ['Firefox'] : ['Chrome']

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Integration with NgModelController - parsing and formatting</title>
+    <link href="../../../assets/bootstrap.min.css" rel="stylesheet"/>
+    <script src="../../../lib/angular.js"></script>
+    <script src="timefields.js"></script>
+
+    <script type="text/javascript">
+        angular.module('demo', ['bs.timefields'])
+                .controller('TimeCtrl', function ($scope) {
+                    $scope.myDate = new Date();
+                });
+    </script>
+
+</head>
+<body ng-app="demo" ng-controller="TimeCtrl">
+
+<pre>
+  {{ myDate | date:'medium'}}
+</pre>
+<div class="well row">
+    <form name="form" class="form-inline">
+        <div class="form-group col-xs-2" ng-class="{'has-success': form.hour.$valid, 'has-error': form.hour.$invalid}">
+            <input name="hour" ng-model="myDate" bs-hourfield class="form-control"/>
+        </div>
+        <div class="form-group col-xs-2" ng-class="{'has-success': form.minute.$valid, 'has-error': form.minute.$invalid}">
+            <input name="minute" ng-model="myDate" bs-minutefield class="form-control"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>
