@@ -35,7 +35,7 @@ angular.module('bs.tooltip', [])
 
           iElement.on('mouseenter', function () {
 
-            //attach tooltip to the DOM to gets its size (needed to calculate positioning)
+            //attach tooltip to the DOM to get its size (needed to calculate positioning)
             iElement.after(tooltipInstanceEl);
 
             //calculate position

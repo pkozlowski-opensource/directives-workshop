@@ -44,7 +44,7 @@ angular.module('bs.popover', [])
 
             if (!shown) {
 
-              //attach popover to the DOM to gets its size
+              //attach popover to the DOM to get its size
               iElement.after(popoverInstanceEl);
 
               //calculate position
