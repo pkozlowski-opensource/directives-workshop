@@ -1,0 +1,6 @@
+<span ng-repeat="starValue in stars"
+      class="glyphicon"
+      ng-class="{'glyphicon-star': isFilled(starValue), 'glyphicon-star-empty': !isFilled(starValue)}"
+      ng-mouseenter="enter(starValue)" ng-mouseleave="leave()"
+      ng-click="select(starValue)"></span>
+{{rating}} / {{maxRating}}
