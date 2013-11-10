@@ -1,5 +1,5 @@
 <ul class="pagination pagination-lg">
     <li ng-class="{disabled: !hasPrevious()}"><a ng-click="selectPage(page-1)">&laquo;</a></li>
-    <li ng-class="{active: page == item}" ng-repeat="item in pages"><a ng-click="selectPage(item)">{{item + 1}}</a></li>
+    <li ng-class="{active: page == (item + 1)}" ng-repeat="item in pages"><a ng-click="selectPage(item)">{{item + 1}}</a></li>
     <li ng-class="{disabled: !hasNext()}"><a ng-click="selectPage(page+1)">&raquo;</a></li>
 </ul>
