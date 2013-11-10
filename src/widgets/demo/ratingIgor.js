@@ -8,12 +8,16 @@ angular.module('bs.ratingIgor', [])
         },
         templateUrl: 'ratingIgor.html',
         link: function($scope) {
-          var maxRating = $scope.maxRating || 5;
           var stars = $scope.stars = [];
 
-          for (var i = 1; i <= maxRating; i++) {
-            stars.push(i);
-          }
+          $scope.$watch('maxRating', function maxRatingWatchAction() {
+            $scope.maxRating = parseInt($scope.maxRating, 10) || 5;
+
+            stars.length = 0;
+            for (var i = 1; i <= $scope.maxRating; i++) {
+              stars.push(i);
+            }
+          });
 
           $scope.enter = function(starValue) {
             $scope.highlightedRating = starValue;
