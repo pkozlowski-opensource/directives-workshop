@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="demo">
 <head>
     <title>Custom widgets</title>
     <link href="../../../assets/bootstrap.min.css" rel="stylesheet">
     <script src="../../../lib/angular.js"></script>
     <script src="rating.js"></script>
+    <script src="ratingIgor.js"></script>
     <script src="ratingNgModel.js"></script>
 
-    <script type="text/javascript">
-        angular.module('demo', ['bs.rating', 'bs.rating2'])
-                .controller('RatingCtrl', function ($scope) {
+    <script>
+        angular.module('demo', ['bs.rating', 'bs.rating2', 'bs.ratingIgor'])
+                .controller('RatingDemoController', function ($scope) {
 
                     $scope.maxValue = 10;
                     $scope.myValue = 5;
@@ -25,15 +26,18 @@
     </script>
 
 </head>
-<body ng-app="demo" ng-controller="RatingCtrl">
+<body ng-controller="RatingDemoController">
 <div class="container">
 
     <div class="well">
         <label for="ratingValue">Rating:</label>
-        <input type="number" ng-model="myValue" min="0" max="{{maxValue}}" class="form-control" id="ratingValue"/>
+        <input type="number" ng-model="myValue" min="0" max="{{maxValue}}" class="form-control" id="ratingValue">
+      <input type="number" ng-model="maxValue" min="0" class="form-control" id="ratingValue">
     </div>
 
     <bs-rating rating="myValue" max-rating="maxValue" rated="onRatingChange($new, $old)"></bs-rating>
+
+    <bs-rating-igor rating="myValue" max-rating="maxValue"></bs-rating-igor>
 
     <!-- Alternative approach, using ngModel
     <bs-rating2 ng-model="myValue" max-rating="maxValue" ng-change="onModelChange()"></bs-rating2>
