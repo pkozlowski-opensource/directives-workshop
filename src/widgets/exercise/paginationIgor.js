@@ -3,39 +3,44 @@ angular.module('bs.paginationIgor', [])
     return {
       restrict: 'E',
       scope: {
-        page: '=',
+        currentPage: '=',
         collectionSize: '=',
         itemsPerPage: '='
       },
       templateUrl: 'paginationIgor.html',
-      link: function ($scope, iElement, iAttrs) {
-        var pages = $scope.pages = [];
+      link: function (scope, iElement, iAttrs) {
+        var pages = scope.pages = [];
+        var pagesCount;
 
-        $scope.$watch('collectionSize', function collectionSizeWatchAction() {
-          var pagesCount = Math.ceil($scope.collectionSize / ($scope.itemsPerPage || 10));
+        scope.$watch('collectionSize', function collectionSizeWatchAction() {
+          pagesCount = Math.ceil(scope.collectionSize / (scope.itemsPerPage || 10));
 
           pages.length = 0;
 
           for (var i = 1; i <= pagesCount; i++) {
-            $scope.pages.push(i);
+            scope.pages.push(i);
           }
 
-          if ($scope.currentPage > $scope.collectionSize) {
-            $scope.currentPage = $scope.collectionSize
+          if (scope.currentPage > pagesCount) {
+            scope.currentPage = pagesCount;
           }
         });
 
+        scope.$watch('currentPage', function(currentPage) {
+          scope.currentPage = Math.max(Math.min(currentPage, pagesCount), 1)
+        });
 
-        $scope.selectPage = function(page) {
-          $scope.selectedPage = page;
+
+        scope.selectPage = function(page) {
+          scope.currentPage = page;
         };
 
-        $scope.hasPrevious = function () {
-          return $scope.selectedPage > 1;
+        scope.hasPrevious = function () {
+          return scope.currentPage > 1;
         };
 
-        $scope.hasNext = function() {
-          return $scope.selectedPage < pages.length;
+        scope.hasNext = function() {
+          return scope.currentPage < pages.length;
         };
       }
     };
