@@ -1,11 +1,11 @@
-<ul class="pagination pagination-lg">
+<ul class="pagination pagination-lg" style="-webkit-user-select: none;">
   <li ng-class="{disabled: !hasPrevious()}">
-    <a ng-click="selectPage(page)">&laquo;</a>
+    <a ng-click="selectPage(currentPage - 1)">&laquo;</a>
   </li>
-  <li ng-class="{active: page == item}" ng-repeat="item in pages">
-    <a ng-click="selectPage(item)">{{item}}</a>
+  <li ng-class="{active: currentPage == page}" ng-repeat="page in pages">
+    <a ng-click="selectPage(page)">{{page}}</a>
   </li>
   <li ng-class="{disabled: !hasNext()}">
-    <a ng-click="selectPage(page)">&raquo;</a>
+    <a ng-click="selectPage(currentPage + 1)">&raquo;</a>
   </li>
 </ul>
