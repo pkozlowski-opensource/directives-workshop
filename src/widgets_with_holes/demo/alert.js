@@ -4,7 +4,6 @@ angular.module('bs.alert', [])
       restrict: 'E',
       templateUrl: 'templates/alert/alert.tpl.html',
       transclude: true,
-      replace: true,
       scope: {
         type: '@',
         close: '&'

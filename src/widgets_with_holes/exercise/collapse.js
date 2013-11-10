@@ -4,7 +4,6 @@ angular.module('bs.collapse', [])
       restrict: 'E',
       templateUrl: 'templates/collapse/collapse.tpl.html',
       transclude: true,
-      replace: true,
       scope: {
         heading: '@'
       },
