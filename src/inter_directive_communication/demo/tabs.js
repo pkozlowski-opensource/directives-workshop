@@ -1,6 +1,6 @@
 angular.module('bs.tabs', [])
 
-  .controller('TabsCtrl', function ($scope) {
+  .controller('BsTabsController', function ($scope) {
 
     $scope.tabs = [];
 
@@ -33,7 +33,7 @@ angular.module('bs.tabs', [])
       templateUrl: 'templates/tabs/tabs.tpl.html',
       transclude: true,
       replace: true,
-      controller: 'TabsCtrl'
+      controller: 'BsTabsController '
     };
   })
 
