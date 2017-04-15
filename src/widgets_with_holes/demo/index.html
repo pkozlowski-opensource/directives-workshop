@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Integration with NgModelController - using $render()</title>
+    <link href="../../../assets/bootstrap.min.css" rel="stylesheet"/>
+    <script src="../../../lib/angular.js"></script>
+    <script src="../../../tmp/templates.js"></script>
+    <script src="alert.js"></script>
+
+    <script type="text/javascript">
+        angular.module('demo', ['bs.alert', 'templates'])
+                .controller('AlertsCtrl', function ($scope) {
+
+                    $scope.model = {name: 'AngularJS'};
+
+                    $scope.alerts = [
+                        { type: 'danger', msg: 'Oh snap! Change a few things up and try submitting again.' },
+                        { type: 'info', msg: 'Heads up! This alert needs your attention, but it\'s not super important.' },
+                        { type: 'success', msg: 'Well done! You successfully read this important alert message.' }
+                    ];
+
+                    $scope.closeAlert = function (index) {
+                        $scope.alerts.splice(index, 1);
+                    };
+                });
+    </script>
+
+</head>
+<body ng-app="demo" ng-controller="AlertsCtrl">
+<div class="container">
+    <pre>
+        Hello, {{model.name}}!
+    </pre>
+    <bs-alert>Hey, this is just a default warning, you can't close me. I can contain <b>markup</b> and even other
+        directive (although bound to a different scope that you might expect).<br>
+        <input type="text" ng-model="model.name"/>
+    </bs-alert>
+    <bs-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+        {{alert.msg}}
+    </bs-alert>
+</div>
+
+</body>
+</html>
